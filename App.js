@@ -22,31 +22,108 @@ import * as Sharing from "expo-sharing";
 const App = () => {
   const [filePath, setFilePath] = useState('');
 
-  const htmlContent = `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pdf Content</title>
-        <style>
-            body {
-                font-size: 16px;
-                color: rgb(255, 196, 0);
-            }
-
-            h1 {
-                text-align: center;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Hello, All!</h1>
-    </body>
-    </html>
-`;
+  const products = [
+    {
+      productID : 1,
+      productName : 'Iphone'
+    },
+    {
+      productID : 2,
+      productName:'OnePlus'
+    }
+  ];
+//
+// var name = 'balaji';
+//
 
 
+const header = `<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Invoice</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        button {
+            height: 30px;
+            width: 15%;
+            background-color: rgb(18, 128, 188);
+            color: white;
+            margin: 0% 20% 1% 43%;
+        }
+
+        table {
+            text-align: left;
+            border-collapse: collapse;
+            width: 50%;
+            margin-left: 25%;
+            margin-right: 25%;
+            margin-bottom: 25px;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+`
+
+
+var body = `
+
+<body>
+    <img src="https://freedesignfile.com/upload/2018/06/Cartoon-truck-design-vector.jpg"
+        style="width:350px;height:150px;margin-bottom:10px;margin-left:40% ;margin-top:10px" alt="Truck" />
+    <h1 style="margin-left:40%;color:maroon;font-family:'OpenSans',sans-serif;">Logistics App</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Col</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+
+
+`
+
+
+for(var index = 0;index<products.length;index++)
+{
+
+      var content = `<tr>
+          <td>${products[index].productID}</td>
+          <td>${products[index].productName}</td>
+      </tr>`
+
+      body = body + content;
+}
+
+body = body
++
+ `
+</tbody>
+</table>
+</body>`;
+
+const footer = `</html>`;
+
+
+var htmlContent = header+body+footer;
 
 
 
